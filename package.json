@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-zurg",
-  "description": "The ultimate force of starter awesomeness in the galaxy of Gatsby",
-  "version": "0.1.5",
-  "author": "Colby Fayock <hello@colbyfayock.com>",
+  "name": "workshop-i2",
+  "description": "Take a picture of your resume to analyse it",
+  "version": "0.0.1",
+  "author": "Jules LE BRIS",
   "dependencies": {
     "bulma": "^0.8.0",
     "deepmerge": "^4.1.1",
@@ -82,9 +82,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/colbyfayock/gatsby-starter-zurg"
+    "url": "https://github.com/ripoul/workshop-I2"
   },
   "bugs": {
-    "url": "https://github.com/colbyfayock/gatsby-starter-zurg/issues"
+    "url": "https://github.com/ripoul/workshop-I2/issues"
   }
 }

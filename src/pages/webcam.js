@@ -1,12 +1,12 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import Webcam from 'react-webcam';
+import { isMobile } from 'react-device-detect';
 
 import Layout from 'components/Layout';
 import Container from 'components/Container';
 
-import { isMobile } from 'react-device-detect';
-const SecondPage = () => {
+const WebcamImgSender = () => {
   const webcamRef = React.useRef( null );
 
   const capture = React.useCallback(() => {
@@ -23,18 +23,22 @@ const SecondPage = () => {
   }
 
   return (
-    <Layout pageName="two">
+    <Layout pageName="WebcamImgSender">
       <Helmet>
-        <title>Page Two</title>
+        <title>webcam capture sender</title>
       </Helmet>
       <Container className="content">
-        <h1>Page Two</h1>
-        <p>Welcome to page 2</p>
-        <Webcam ref={webcamRef} videoConstraints={videoConstraints} />
-        <button onClick={capture}>Send CV for analyse</button>
+        <h1>Webcam capture sender</h1>
+        <p>Take a picture of your resume</p>
+        <div>
+          <Webcam ref={webcamRef} videoConstraints={videoConstraints} />
+        </div>
+        <p>
+          <button onClick={capture}>Send CV for analyse</button>
+        </p>
       </Container>
     </Layout>
   );
 };
 
-export default SecondPage;
+export default WebcamImgSender;

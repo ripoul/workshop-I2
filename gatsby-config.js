@@ -4,7 +4,7 @@ module.exports = {
     lang: 'en',
     siteType: 'website', // https://ogp.me/#types
     siteUrl: 'https://gatsby-starter-zurg.netlify.com/',
-    title: 'Zurgbot Gatsby Starter'
+    title: 'Workshop I2'
   },
   plugins: [
     'gatsby-plugin-resolve-src',
@@ -20,8 +20,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Zurgbot Gatsby Starter',
-        short_name: 'Zurgbot Gatsby Starter',
+        name: 'Workshop I2',
+        short_name: 'Workshop I2',
         start_url: '/',
         background_color: '#663399',
         theme_color: '#a2466c',

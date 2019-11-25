@@ -12,7 +12,7 @@ const Header = () => {
       <Container>
         <Columns>
           <Column>
-            <p>My Gatsby Site</p>
+            <p>Workshop I2</p>
           </Column>
           <Column>
             <ul>
@@ -20,10 +20,10 @@ const Header = () => {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/page-2/">Page 2</Link>
+                <Link to="/webcam/">Webcam</Link>
               </li>
               <li>
-                <a href="https://github.com/zurgbot/gatsby-starter-zurgbot">
+                <a href="https://github.com/ripoul/workshop-I2">
                   <FaGithub />
                 </a>
               </li>
