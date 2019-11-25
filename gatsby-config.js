@@ -26,7 +26,7 @@ module.exports = {
         background_color: '#663399',
         theme_color: '#a2466c',
         display: 'standalone',
-        icon: 'src/assets/images/zurg-icon.svg'
+        icon: 'src/assets/images/icon.png'
       }
     },
     'gatsby-plugin-offline',
