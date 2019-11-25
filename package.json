@@ -1,31 +1,88 @@
 {
-  "name": "workshop-i2",
-  "version": "0.1.0",
-  "private": true,
+  "name": "gatsby-starter-zurg",
+  "description": "The ultimate force of starter awesomeness in the galaxy of Gatsby",
+  "version": "0.1.5",
+  "author": "Colby Fayock <hello@colbyfayock.com>",
   "dependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.2.0"
+    "bulma": "^0.8.0",
+    "deepmerge": "^4.1.1",
+    "eslint-config-zurgbot": "^0.0.6",
+    "gatsby": "^2.16.5",
+    "gatsby-plugin-manifest": "^2.2.23",
+    "gatsby-plugin-offline": "^3.0.16",
+    "gatsby-plugin-react-helmet": "^3.1.13",
+    "gatsby-plugin-resolve-src": "^2.0.0",
+    "gatsby-plugin-sass": "^2.1.20",
+    "gatsby-plugin-sitemap": "^2.2.19",
+    "gatsby-source-filesystem": "^2.1.33",
+    "node-sass": "^4.11.0",
+    "parameterize": "^1.0.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-helmet": "^5.2.1",
+    "react-icons": "^3.7.0"
   },
+  "devDependencies": {
+    "@fabiospampinato/bump": "^1.2.2",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
+    "babel-preset-gatsby": "^0.2.20",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "eslint": "^6.5.1",
+    "eslint-config-react-app": "^5.0.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.1.2",
+    "husky": "^3.0.9",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.4.2",
+    "prettier": "^1.18.2",
+    "prettier-eslint": "^9.0.0",
+    "prettier-eslint-cli": "^5.0.0",
+    "stylelint": "^11.1.1",
+    "stylelint-scss": "^3.11.1"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "yarn clean && gatsby build",
+    "bump": "bump",
+    "clean": "gatsby clean",
+    "develop": "gatsby develop",
+    "lint": "yarn lint-js && yarn lint-css",
+    "lint-css": "stylelint 'src/assets/stylesheets/**/*.scss' --config ./config/stylelint.config.js",
+    "lint-js": "eslint -c ./config/eslint.config.js . --ext .js",
+    "format": "yarn format-js && yarn format-css",
+    "format-js": "prettier-eslint --eslint-config-path ./config/eslint.config.js --write '**/*.js'",
+    "format-css": "yarn lint-css --fix",
+    "precommit": "lint-staged",
+    "start": "yarn develop",
+    "serve": "gatsby serve",
+    "test": "jest --config ./config/jest.config.js",
+    "test-watch": "yarn test --watchAll"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+  "lint-staged": {
+    "**/*.js": [
+      "yarn format-js",
+      "yarn lint-js",
+      "git add"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+    "**/*.scss": [
+      "yarn format-css",
+      "yarn lint-css",
+      "git add"
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/colbyfayock/gatsby-starter-zurg"
+  },
+  "bugs": {
+    "url": "https://github.com/colbyfayock/gatsby-starter-zurg/issues"
   }
 }
