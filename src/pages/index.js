@@ -28,7 +28,7 @@ class IndexPage extends React.Component {
         <Container className="content">
           <Columns>
             <Column>
-              <SearchBar onSearchResult={this.onResultSearch}></SearchBar>
+              <SearchBar />
             </Column>
           </Columns>
           <Columns>
