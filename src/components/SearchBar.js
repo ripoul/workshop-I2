@@ -22,8 +22,8 @@ class SearchBar extends React.Component {
   };
 
   onClickSearch = () => {
-    const api_host = process.env.API_HOST || '127.0.0.1';
-    const url = `http://${api_host}/api/search`;
+    const api_host = process.env.API_HOST || 'http://127.0.0.1';
+    const url = `${api_host}/api/search`;
 
     axios
       .get( url, {

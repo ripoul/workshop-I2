@@ -11,9 +11,18 @@ const WebcamImgSender = () => {
 
   const capture = React.useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
-    axios.post( 'http://localhost:8000/', {
-      file: imageSrc
-    });
+    axios
+      .post( 'https://workshop-epsi-i2.appspot.com/', {
+        file: imageSrc
+      })
+      .then(( data ) => {
+        console.log( JSON.stringify( data ));
+        alert( data );
+      })
+      .catch(( e ) => {
+        console.log( e );
+        alert( e );
+      });
   }, [webcamRef]);
 
   var videoConstraints = null;
