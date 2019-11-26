@@ -11,7 +11,12 @@ const WebcamImgSender = () => {
 
   const capture = React.useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
-    console.log( imageSrc );
+
+    fetch( 'http://localhost:8000/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'multipart/form-data' },
+      body: { file: imageSrc }
+    });
   }, [webcamRef]);
 
   var videoConstraints = null;
