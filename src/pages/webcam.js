@@ -1,8 +1,8 @@
 import React from 'react';
+import axios from 'axios';
 import Helmet from 'react-helmet';
 import Webcam from 'react-webcam';
 import { isMobile } from 'react-device-detect';
-
 import Layout from 'components/Layout';
 import Container from 'components/Container';
 
@@ -11,7 +11,9 @@ const WebcamImgSender = () => {
 
   const capture = React.useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
-    console.log( imageSrc );
+    axios.post( 'http://localhost:8000/', {
+      file: imageSrc
+    });
   }, [webcamRef]);
 
   var videoConstraints = null;
@@ -31,7 +33,7 @@ const WebcamImgSender = () => {
         <h1>Webcam capture sender</h1>
         <p>Take a picture of your resume</p>
         <div>
-          <Webcam ref={webcamRef} videoConstraints={videoConstraints} />
+          <Webcam ref={webcamRef} screenshotFormat="image/jpeg" videoConstraints={videoConstraints} />
         </div>
         <p>
           <button onClick={capture}>Send CV for analyse</button>
