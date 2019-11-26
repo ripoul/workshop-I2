@@ -16,7 +16,7 @@ class IndexPage extends React.Component {
   };
 
   PersonsList = () => {
-    const listItems = this.state.persons.map(( p, i ) => <li key={i}>{ p.name }</li> );
+    const listItems = this.state.persons.map(( p, i ) => <li key={i}>{ p.join( ' ' ) }</li> );
     return <ul>{ listItems }</ul>;
   };
 
