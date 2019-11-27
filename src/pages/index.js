@@ -2,9 +2,8 @@ import React from 'react';
 
 import Layout from 'components/Layout';
 import Container from 'components/Container';
-import Columns from 'components/Columns';
-import Column from 'components/Column';
 import SearchBar from 'components/SearchBar';
+import PersonItem from 'components/PersonItem';
 import axios from 'axios';
 
 class IndexPage extends React.Component {
@@ -14,12 +13,13 @@ class IndexPage extends React.Component {
   };
 
   displayList = () => {
-    const listItems = this.state.displayedResults.map(( p, i ) => <li key={i}>{ p }</li> );
-    return <ul>{ listItems }</ul>;
+    return this.state.displayedResults.map(( content, index ) => <PersonItem key={index} content={content} /> );
   };
 
   onClickSearch = ( search ) => {
-    this.setState({ displayedResults: this.state.allResults.filter(( line ) => line.includes( search )) });
+    this.setState({
+      displayedResults: this.state.allResults.filter(( line ) => line.toUpperCase().includes( search.toUpperCase()))
+    });
   };
 
   componentDidMount = () => {
@@ -39,17 +39,21 @@ class IndexPage extends React.Component {
   // We don't include the title in Helmet here because we'll inherit the
   // default title from Layout
   render() {
+    const searchLineStyle = {
+      marginBottom: '3rem'
+    };
+
     return (
       <Layout pageName="home">
         <Container className="content">
-          <Columns>
-            <Column>
+          <div className="columns" style={searchLineStyle}>
+            <div className="column">
               <SearchBar onSearch={this.onClickSearch} />
-            </Column>
-          </Columns>
-          <Columns>
-            <Column>{ this.displayList() }</Column>
-          </Columns>
+            </div>
+          </div>
+          <div className="columns">
+            <div className="column">{ this.displayList() }</div>
+          </div>
         </Container>
       </Layout>
     );
