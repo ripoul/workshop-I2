@@ -19,7 +19,9 @@ class IndexPage extends React.Component {
   };
 
   onClickSearch = ( search ) => {
-    this.setState({ displayedResults: this.state.allResults.filter(( line ) => line.includes( search )) });
+    this.setState({
+      displayedResults: this.state.allResults.filter(( line ) => line.toUpperCase().includes( search.toUpperCase()))
+    });
   };
 
   componentDidMount = () => {
