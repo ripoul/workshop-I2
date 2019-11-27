@@ -17,13 +17,13 @@ const WebcamImgSender = () => {
         file: imageSrc
       })
       .then(( data ) => {
-        console.log( JSON.stringify( data ));
-        alert( data );
+        var ret = `status = ${data.status} || data=${data.data}`;
+        console.log( ret );
+        alert( ret );
       })
       .catch(( e ) => {
-        console.log( url );
-        console.log( e );
-        alert( e );
+        console.log( JSON.stringify( e ));
+        alert( JSON.stringify( e ));
       });
   }, [webcamRef]);
 
