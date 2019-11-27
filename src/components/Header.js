@@ -23,17 +23,31 @@ class Header extends React.Component {
       },
       {
         text: <FaGithub />,
-        link: 'https://github.com/ripoul/workshop-I2'
+        link: 'https://github.com/ripoul/workshop-I2',
+        external: true
       }
     ]
   };
 
   RenderLinks = () => {
-    const items = this.state.links.map(( l, i ) => (
-      <li key={i}>
-        <Link to={l.link}>{ l.text }</Link>
-      </li>
-    ));
+    const items = this.state.links.map(( link, i ) => {
+      const isExternal = link.external !== undefined && link.external === true;
+      if ( isExternal ) {
+        return (
+          <li key={i}>
+            <a href={link.link} target="_blank" rel="noopener noreferrer">
+              { link.text }
+            </a>
+          </li>
+        );
+      } else {
+        return (
+          <li key={i}>
+            <Link to={link.link}>{ link.text }</Link>
+          </li>
+        );
+      }
+    });
     return <ul>{ items }</ul>;
   };
 
