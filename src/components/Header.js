@@ -43,7 +43,9 @@ class Header extends React.Component {
         <Container>
           <Columns>
             <Column>
-              <p>Workshop I2</p>
+              <p>
+                <Link to="/">TalentMining</Link>
+              </p>
             </Column>
             <Column>
               <this.RenderLinks />
