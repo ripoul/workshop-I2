@@ -23,7 +23,7 @@ class IndexPage extends React.Component {
   };
 
   componentDidMount = () => {
-    const api_host = process.env.API_HOST || 'http://127.0.0.1:8000';
+    const api_host = 'https://workshop-epsi-i2.appspot.com';
     const url = `${api_host}/api/get_all`;
 
     axios.get( url ).then(( response ) => {
