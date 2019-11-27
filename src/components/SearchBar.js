@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FaSearch } from 'react-icons/fa';
-import axios from 'axios';
 
 class SearchBar extends React.Component {
   static propTypes = {
-    onSearchResult: PropTypes.func
+    onSearch: PropTypes.func.isRequired
   };
 
   state = {
@@ -22,19 +21,7 @@ class SearchBar extends React.Component {
   };
 
   onClickSearch = () => {
-    const api_host = process.env.API_HOST || 'http://127.0.0.1:8000';
-    const url = `${api_host}/api/search`;
-
-    axios
-      .get( url, {
-        params: {
-          keyword: this.state.search
-        }
-      })
-      .then(( response ) => {
-        // Call callback with response
-        if ( typeof this.props.onSearchResult === 'function' ) this.props.onSearchResult( response.data );
-      });
+    this.props.onSearch( this.state.search );
   };
 
   render() {

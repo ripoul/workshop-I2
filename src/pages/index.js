@@ -5,19 +5,35 @@ import Container from 'components/Container';
 import Columns from 'components/Columns';
 import Column from 'components/Column';
 import SearchBar from 'components/SearchBar';
+import axios from 'axios';
 
 class IndexPage extends React.Component {
   state = {
-    persons: []
+    displayedResults: [],
+    allResults: []
   };
 
-  onResultSearch = ( data ) => {
-    this.setState({ persons: data });
-  };
-
-  PersonsList = () => {
-    const listItems = this.state.persons.map(( p, i ) => <li key={i}>{ p.join( ' ' ) }</li> );
+  displayList = () => {
+    const listItems = this.state.displayedResults.map(( p, i ) => <li key={i}>{ p }</li> );
     return <ul>{ listItems }</ul>;
+  };
+
+  onClickSearch = ( search ) => {
+    this.setState({ displayedResults: this.state.allResults.filter(( line ) => line.includes( search )) });
+  };
+
+  componentDidMount = () => {
+    const api_host = process.env.API_HOST || 'http://127.0.0.1:8000';
+    const url = `${api_host}/api/get_all`;
+
+    axios.get( url ).then(( response ) => {
+      // Call callback with response
+      const list = response.data.map(( words ) => words.join( ' ' ));
+      this.setState({
+        allResults: list,
+        displayedResults: list
+      });
+    });
   };
 
   // We don't include the title in Helmet here because we'll inherit the
@@ -28,13 +44,11 @@ class IndexPage extends React.Component {
         <Container className="content">
           <Columns>
             <Column>
-              <SearchBar />
+              <SearchBar onSearch={this.onClickSearch} />
             </Column>
           </Columns>
           <Columns>
-            <Column>
-              <this.PersonsList />
-            </Column>
+            <Column>{ this.displayList() }</Column>
           </Columns>
         </Container>
       </Layout>
