@@ -18,12 +18,12 @@ const WebcamImgSender = () => {
       })
       .then(( data ) => {
         console.log( JSON.stringify( data ));
-        alert( data );
+        alert( JSON.stringify( data ));
       })
       .catch(( e ) => {
         console.log( url );
         console.log( e );
-        alert( e );
+        alert( JSON.stringify( e ));
       });
   }, [webcamRef]);
 
