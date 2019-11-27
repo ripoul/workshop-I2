@@ -12,7 +12,7 @@ const WebcamImgSender = () => {
   const capture = React.useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
     axios
-      .post( 'https://workshop-epsi-i2.appspot.com/', {
+      .post( process.env.API_HOST || 'http://127.0.0.1:8000', {
         file: imageSrc
       })
       .then(( data ) => {
