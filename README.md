@@ -9,6 +9,9 @@
   <a href="https://twitter.com/ripoulNantes">
     <img alt="Twitter: ripoulNantes" src="https://img.shields.io/twitter/follow/ripoulNantes.svg?style=social" target="_blank" />
   </a>
+  <a href="https://app.netlify.com/sites/workshop-i2/deploys">
+    <img alt="netlify" src="https://api.netlify.com/api/v1/badges/69c384d9-8535-4122-b8bd-e3419bdbc7df/deploy-status" />
+  </a>
 </p>
 
 > Take a picture of your resume to analyse it
