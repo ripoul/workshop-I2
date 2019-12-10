@@ -4,7 +4,8 @@ module.exports = {
     lang: 'en',
     siteType: 'website', // https://ogp.me/#types
     siteUrl: 'https://gatsby-starter-zurg.netlify.com/',
-    title: 'TalentMining'
+    title: 'TalentMining',
+    backend: 'http://localhost:8000'
   },
   plugins: [
     'gatsby-plugin-resolve-src',
