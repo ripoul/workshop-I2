@@ -20,6 +20,8 @@
 
 ## Install
 
+You need the backend to run if you want this app to work : https://github.com/ripoul/workshop-i2-back.
+
 ```sh
 yarn install
 ```
