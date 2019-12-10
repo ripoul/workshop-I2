@@ -20,7 +20,7 @@
 
 ## Install
 
-You need the backend to run if you want this app to work : https://github.com/ripoul/workshop-i2-back.
+You need the backend to run if you want this app to work : https://github.com/ripoul/workshop-i2-back. You have to set the backend url in `gatsby-config.js` default is http://localhost:8000.
 
 ```sh
 yarn install
