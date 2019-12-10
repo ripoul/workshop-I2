@@ -4,7 +4,11 @@ import Layout from 'components/Layout';
 import Container from 'components/Container';
 import SearchBar from 'components/SearchBar';
 import PersonItem from 'components/PersonItem';
+import { useSiteMetadata } from 'hooks';
+const siteMetadata = useSiteMetadata();
+
 import axios from 'axios';
+
 
 class IndexPage extends React.Component {
   state = {
@@ -23,8 +27,7 @@ class IndexPage extends React.Component {
   };
 
   componentDidMount = () => {
-    const api_host = 'https://workshop-epsi-i2.appspot.com';
-    const url = `${api_host}/api/get_all`;
+    const url = `${siteMetadata.backend}/api/get_all`;
 
     axios.get( url ).then(( response ) => {
       // Call callback with response

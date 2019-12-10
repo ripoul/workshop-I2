@@ -5,15 +5,16 @@ import Webcam from 'react-webcam';
 import { isMobile } from 'react-device-detect';
 import Layout from 'components/Layout';
 import Container from 'components/Container';
+import { useSiteMetadata } from 'hooks';
+const siteMetadata = useSiteMetadata();
 
 const WebcamImgSender = () => {
   const webcamRef = React.useRef( null );
 
   const capture = React.useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
-    const url = 'https://workshop-epsi-i2.appspot.com/';
     axios
-      .post( url, {
+      .post( siteMetadata.backend, {
         file: imageSrc
       })
       .then(( data ) => {
