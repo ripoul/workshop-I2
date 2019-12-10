@@ -10,6 +10,7 @@ function useSiteMetadata() {
             lang
             siteType
             title
+            backend
           }
         }
       }
